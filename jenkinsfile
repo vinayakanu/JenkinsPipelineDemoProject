@@ -2,7 +2,12 @@ pipeline{
 agent any
 stages 
 {
-stage('Build') 
+stage('git-checkout'){
+steps{
+git credentialsId: 'gituser', url: 'https://github.com/vinayakanu/JenkinsPipelineDemoProject.git'
+}
+}
+stage('Build')
 {
 steps{
 echo "Building the Code.........."
